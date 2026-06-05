@@ -13,9 +13,9 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 		nic_tld = "nic.#{cctld}"
 		stdout, stderr, status = Open3.capture3("whois -h #{tld_whois_server} #{nic_tld}")
 
-		if status.success?
+		if status.success? && !stdout.empty?
 			# Ensure the target is in the response
-			if stdout.downcase.include?(nic_tld)
+			if stdout.scrub(".") =~ /#{cctld}/i
 				print "Y\n"
 			else
 				print "Unexpected output:"
