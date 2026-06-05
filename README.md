@@ -6,7 +6,7 @@
 - WHOIS - lookup using WHOIS for nic.[TLD] (which exists in most zones) against the whois server listed by IANA (whois.iana.org)
 
 # Scripts
-The included Ruby scripts can be used to generate fresh data. They require a newline-separated ccTLD list file (cctld-list.txt). The WHOIS checker requires the whois gem.
+The included Ruby scripts can be used to generate fresh data. They require a newline-separated ccTLD list file (cctld-list.txt).
 
 # WHOIS Notes
 
