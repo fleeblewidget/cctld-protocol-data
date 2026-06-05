@@ -9,7 +9,7 @@ rdap_tld_hash["services"].each do |tld|
 end
 
 File.readlines('cctld-list.txt', chomp: true).each do |cctld|
-#	print "#{cctld},"
+	print "#{cctld},"
 	if rdap_tlds.include?(cctld)
 		print "Y\n"
 	else
