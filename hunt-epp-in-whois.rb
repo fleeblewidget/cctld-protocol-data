@@ -4,7 +4,6 @@ require 'open3'
 #
 # We can't prove a negative this way, so absence of hints is indicated with '?', not 'N'
 
-
 File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 	print "#{cctld},"
 
@@ -22,12 +21,40 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 		stdout.scrub!(".")
 
 		if status.success?
-			# See whether CentralNIC is mentioned - if so, assume EPP
-			if stdout =~ /CentralNIC/i
+			# See whether known backend registry providers are mentioned - if so, assume EPP
+			case stdout
+			when /CentralNIC/i
 				print "Y - CentralNIC\n"
+			when /identity\s*digital/i 
+				print "Y - IdentityDigital\n"
+			when /CoCCA/
+				# CoCCA's ROIDs seem to have CoCCA in them, but matching specifically on case will hopefully weed out false positives
+				print "Y - CoCCA\n"
+			when /sidn.nl/
+				# At least one TLD has sidn nameservers on their nic, implying SIDN are involved in operations and presumably providing EPP
+				print "Y - SIDN\n"
+			when /versign/i
+				print "Y - Verisign\n"
+			when /afnic/i
+				print "Y - Afnic"
+			when /tucows/i
+				print "Y - Tucows\n"
+			when /radix/i
+				print "Y - Radix\n"
+			when /cira/i
+				print "Y - CIRA\n"
+			when /nominet/i
+				print "Nominet\n"
+			when /registry.godaddy/i
+				print "GoDaddy Registry\n"
 			else
-				print "? - UNKNOWN OUTPUT: #{stdout}"
+				if stdout =~ /[client|server][a-z]*[Prohibited|Hold]/
+					print "Y - EPP statuses applied\n" 
+				else
+					print "? - Unable to determine backend status from whois\n"
+				end
 			end
+
 		else
 			# Lookup failed, game over
 			print "N - Error from WHOIS\n"

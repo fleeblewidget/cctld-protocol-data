@@ -26,3 +26,6 @@ EPP doesn't have a standard discoverability mechanism, and EPP servers are not p
 1. CoCCA provides an EPP server, so all users are assumed to have EPP (https://cocca.org.nz/#Patrons)
 2. FRED also provides an EPP server, so FRED users are also assumed to have EPP (https://fred.nic.cz/en/)
 3. Newer open source registry Namingo is in use at .ye, this is therefore also assumed to include EPP
+4. .as is being run by https://www.gdns.com/ but it is unclear whether this includes an EPP implementation, .as has been marked unknown
+5. Clues can be found in WHOIS output which suggest provision from other backend registry operators who are presumed to provide EPP (see hunt-epp-in-whois script)
+6. Any cases where the nic.TLD domain has client or server statuses reported in the WHOIS (e.g. serverDeleteProhibited) are assumed to have EPP
