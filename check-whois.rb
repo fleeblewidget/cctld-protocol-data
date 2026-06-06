@@ -7,7 +7,7 @@ require 'open3'
 # N = WHOIS server does not exist
 #
 # Format is: {TLD => ["Expected Text","Y/N"]}
-known_exceptions = {
+KNOWN_EXCEPTIONS = {
 	"cn" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar", "Y"],
 	"hk" => ["This domain is currently not available for registration. Please select other domain.", "Y"],
 	"mm" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
@@ -39,8 +39,8 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 					print "N - Response states no whois server\n"
 				else
 					# Handle exceptions - known servers which handle nic.tld unusually
-					if known_exceptions.has_key?(cctld) && stdout =~ /#{known_exceptions[cctld][0]}/
-						print "#{known_exceptions[cctld][1]}\n"
+					if KNOWN_EXCEPTIONS.has_key?(cctld) && stdout =~ /#{KNOWN_EXCEPTIONS[cctld][0]}/
+						print "#{KNOWN_EXCEPTIONS[cctld][1]}\n"
 					else
 						# Bail, unknown response
 						print "Unexpected output: "
