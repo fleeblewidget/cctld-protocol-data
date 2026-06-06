@@ -8,7 +8,8 @@ require 'net/http'
 #
 # Format is: {TLD => name}
 KNOWN_EXCEPTIONS = {
-	"vg" => "news.vg"
+	"vg" => "news.vg",
+	"fj" => "gov.fj"
 }
 
 # Utility method to open a connection and send a request
@@ -56,8 +57,10 @@ def probe_rdap(base_url, cctld)
 				# Again, if get a proper response sub it into the logic and carry on
 				response = response_rdap_server2 if response_rdap_server2.code.to_i == 200
 			end
-		else
-			# RDAP server is outside zone so can't use that, check if we've recorded an exception
+		end
+
+		# If still have 404 after that, check if we've recorded an exception
+		if response.code.to_i == 404 
 			if KNOWN_EXCEPTIONS.has_key?(cctld)
 				STDERR.puts("404 on nic.#{cctld} at #{base_url}, trying known exception #{KNOWN_EXCEPTIONS[cctld]}")
 				response_exception = send_request("#{base_url}/domain/#{KNOWN_EXCEPTIONS[cctld]}")
@@ -65,7 +68,7 @@ def probe_rdap(base_url, cctld)
 				# Again, if get a proper response sub it into the logic and carry on
 				response = response_exception if response_exception.code.to_i == 200
 			else
-				STDERR.puts("404 from #{base_url} but no alternative tried - bailing")
+				STDERR.puts("404 from #{base_url} but no alternatives work - bailing")
 			end
 		end
 	end
