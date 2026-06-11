@@ -1,4 +1,6 @@
+require 'json'
 require 'open3'
+require 'open-uri'
 
 # Configure exceptions - these have been tested separately and status determined based
 # on a particular response.
@@ -16,6 +18,10 @@ KNOWN_EXCEPTIONS = {
 	"vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"]
 }
 
+
+# Try IANA first, but fall back on list from https://whoislist.org/whois_servers.json for TLDs not in the list
+whoislist_servers = JSON.parse(URI.open('https://whoislist.org/whois_servers.json').read)
+
 File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 	print "#{cctld},"
 
@@ -23,34 +29,46 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 	tld_whois_server = `whois -h whois.iana.org #{cctld} | grep -ie "^whois: " | sed 's/whois:\s*//'`.chomp
 
 	if tld_whois_server.empty?
-		print "N - No WHOIS listed by IANA\n"
-	else
-		# Check the WHOIS server responds
-		nic_tld = "nic.#{cctld}"
-		stdout, stderr, status = Open3.capture3("whois -h #{tld_whois_server} #{nic_tld}")
+		# Check for an entry in whoislist
+		if whoislist_servers.has_key?(cctld)
+			tld_whois_server = whoislist_servers[cctld]
+		else
+			# Final effort - try operating system whois
+			tld_whois_server = `whois #{cctld} | grep -ie "^whois: " | sed 's/whois:\s*//'`.chomp
 
-		if status.success? && !stdout.empty?
-			# Ensure the target is in the response
-			if stdout.scrub(".") =~ /#{cctld}/i
-				print "Y\n"
+			if tld_whois_server.empty?
+				# Can't find a server
+				print "N - No WHOIS server found\n"
+				next
+			end
+		end
+	end
+
+	# Check the WHOIS server responds
+	nic_tld = "nic.#{cctld}"
+	stdout, stderr, status = Open3.capture3("whois -h #{tld_whois_server} #{nic_tld}")
+
+	if status.success? && !stdout.empty?
+		# Ensure the target is in the response
+		if stdout.scrub(".") =~ /#{cctld}/i
+			print "Y\n"
+		else
+
+			if stdout =~ /This TLD has no whois server/i
+				print "N - Response states no whois server\n"
 			else
-
-				if stdout =~ /This TLD has no whois server/i
-					print "N - Response states no whois server\n"
+				# Handle exceptions - known servers which handle nic.tld unusually
+				if KNOWN_EXCEPTIONS.has_key?(cctld) && stdout =~ /#{KNOWN_EXCEPTIONS[cctld][0]}/
+					print "#{KNOWN_EXCEPTIONS[cctld][1]}\n"
 				else
-					# Handle exceptions - known servers which handle nic.tld unusually
-					if KNOWN_EXCEPTIONS.has_key?(cctld) && stdout =~ /#{KNOWN_EXCEPTIONS[cctld][0]}/
-						print "#{KNOWN_EXCEPTIONS[cctld][1]}\n"
-					else
-						# Bail, unknown response
-						print "Unexpected output: "
-						print stdout
-					end
+					# Bail, unknown response
+					print "Unexpected output: "
+					print stdout
 				end
 			end
-		else
-			# Lookup failed, print error (or stdout if no error)
-			print "N - #{(stderr.empty? ? stdout : stderr).chomp}\n"
 		end
+	else
+		# Lookup failed, print error (or stdout if no error)
+		print "N - #{(stderr.empty? ? stdout : stderr).chomp}\n"
 	end
 end

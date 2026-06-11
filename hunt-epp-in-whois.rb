@@ -36,7 +36,7 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 			when /versign/i
 				print "Y - Verisign\n"
 			when /afnic/i
-				print "Y - Afnic"
+				print "Y - Afnic\n"
 			when /tucows/i
 				print "Y - Tucows\n"
 			when /radix/i

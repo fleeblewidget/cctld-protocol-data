@@ -101,20 +101,20 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
   	print "#{cctld},"
 
   	unless rdap_servers.key?(cctld)
-    	print "N - not in IANA bootstrap list\n"
-    	next
+    		print "N - not in IANA bootstrap list\n"
+    		next
   	end
 
   	# Try each server URL until one works
   	result = nil
   	rdap_servers[cctld].each do |url|
-    	result = probe_rdap(url.chomp('/'), cctld)
-    	break if result == :ok
+	    	result = probe_rdap(url.chomp('/'), cctld)
+    		break if result == :ok
   	end
 
   	if result == :ok
-    	print "Y\n"
+	    	print "Y\n"
   	else
-    	print "N - #{result}\n"
+    		print "N - #{result}\n"
   	end
 end
