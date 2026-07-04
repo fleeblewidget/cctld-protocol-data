@@ -1,3 +1,9 @@
+# Prereqs
+
+* Install ruby
+* Install bundler gem: `gem install bundler`
+* Install project gems: `bundle install`
+
 # Methodology
 
 - ccTLD list - from Iana (https://www.iana.org/domains/root/db) filtered to country-code entries, cross-referenced with https://www.worldstandards.eu/other/tlds/ for country names.
