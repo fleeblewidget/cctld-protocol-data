@@ -15,7 +15,14 @@ KNOWN_EXCEPTIONS = {
 	"mm" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
 	"qa" => ["The Domain Name is not Available", "Y"],
 	"th" => ["No match found", "Y"],
-	"vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"]
+	"vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
+	"xn--clchc0ea0b2g2a9gcd" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+	"xn--yfro4i67o" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+	"xn--fiqs8s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+	"xn--4gqp52b" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+	"xn--j6w193g" => ["This domain is currently not available for registration. Please select other domain.","Y"],
+	"xn--o3cw4h" => ["% No match found.","Y"],
+	"xn--wgbl6a" => ["No Data Found","Y"]
 }
 
 
@@ -50,15 +57,15 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 		end
 	end
 
-	# Check whether we've already verified this server
-	if checked_whois_servers.has_key?(tld_whois_server)
+	# For IDNs, check whether we've already verified this server
+	if cctld.start_with?("xn--") && checked_whois_servers.has_key?(tld_whois_server)
 		puts "#{checked_whois_servers[tld_whois_server]} - previously checked server #{tld_whois_server}"
 		next
 	end
 
 	# Check the WHOIS server responds
 	nic_tld = "nic.#{cctld}"
-	stdout, stderr, status = Open3.capture3("whois -h #{tld_whois_server} #{nic_tld}")
+  	stdout, stderr, status = Open3.capture3("whois -h #{tld_whois_server} #{nic_tld}")
 
 	if status.success? && !stdout.empty?
 		# Ensure the target is in the response
@@ -71,7 +78,7 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 				puts "N - Response states no whois server"
 				checked_whois_servers[tld_whois_server] = "N"
 			else
-				# Handle exceptions - known servers which handle nic.tld unusually
+				# Handle exceptions - known servers which handle other domains but not nic.tld
 				if KNOWN_EXCEPTIONS.has_key?(cctld) && stdout =~ /#{KNOWN_EXCEPTIONS[cctld][0]}/
 					puts "#{KNOWN_EXCEPTIONS[cctld][1]}"
 				else
