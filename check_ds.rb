@@ -1,9 +1,9 @@
 File.readlines('cctld-list.txt', chomp: true).each do |tld|
 	print "#{tld},"
-  result=`dig +short DS #{tld}. @a.root-servers.net`
+  result=`dig +time=5 +tries=2 +short DS #{tld}. @a.root-servers.net`
   if result.empty?
-  	print "N\n"
+  	puts "N"
   else
-  	print "Y\n"
+  	puts "Y"
   end
 end
