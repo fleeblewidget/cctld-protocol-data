@@ -10,18 +10,14 @@
 - DS in root - based on dig for DS in .[TLD] against a.root-servers.net.
 - RDAP - checked against RDAP bootstrap file, from https://data.iana.org/rdap/dns.json.
 - WHOIS - lookup using WHOIS for nic.[TLD] (which exists in most zones) against the whois server listed by IANA (whois.iana.org), with special-case coding for known exceptions (see WHOIS Notes).
-- EPP servers - there is no standard discovery mechanism for EPP, the data for these has been manually gathered. Rough notes on this are in EPP Notes, however the quality of the data is not great and so "confirmed no EPP" is distinguished from "No EPP found" in the results. Anyone with personal knowledge of the existence of standards-compliant EPP servers for TLDs of unknown status is welcome to raise an issue to request an update.
 
-# Scripts
-The included Ruby scripts can be used to generate fresh data. They require a newline-separated ccTLD list file (cctld-list.txt).
+# Generating data
+The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA.
 
 # WHOIS Notes
 WHOIS responses are very varied, and in particular the chosen search string for these metrics (nic.TLD) has
-some surprising responses for some TLDs. In these cases, separate checks were carried out to try and determine
-whether a server was available, and special cases coded into the script.
-
-Several of these responses relate to domain availability (e.g. .qa "The Domain Name is not Available"), some
-suggest that nic.TLD isn't registered - in some cases despite the whois being hosted on a subdomain of it.
+some surprising responses for some TLDs and doesn't work for IDNS. In these cases, an attempt is made to match
+to a known server, otherwise fall back on exceptions coded into the scripts based on offline checking.
 
 A final note on WHOIS: the protocol is being replaced with RDAP and some registries have deprecated it. Therefore,
 absence of WHOIS in registries which have RDAP is likely not a sign of an immature technology stack.
