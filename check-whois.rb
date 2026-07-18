@@ -22,6 +22,12 @@ KNOWN_EXCEPTIONS = {
 # Try IANA first, but fall back on list from https://whoislist.org/whois_servers.json for TLDs not in the list
 whoislist_servers = JSON.parse(URI.open('https://whoislist.org/whois_servers.json').read)
 
+# IDN lookups are hard, because 'nic' needs translating into the appropriate language and the language isn't part
+# of the IANA dataset. As a shortcut, if the whois server we're looking up against has already been checked, use
+# that result and assume that IDN lookups also work. Note that this only works for TLDs earlier in the
+# alphabet than xn-- (sorry again, Zambia)
+checked_whois_servers = {}
+
 File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 	print "#{cctld},"
 
@@ -38,10 +44,16 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 
 			if tld_whois_server.empty?
 				# Can't find a server
-				print "N - No WHOIS server found\n"
+				puts "N - No WHOIS server found"
 				next
 			end
 		end
+	end
+
+	# Check whether we've already verified this server
+	if checked_whois_servers.has_key?(tld_whois_server)
+		puts "#{checked_whois_servers[tld_whois_server]} - previously checked server #{tld_whois_server}"
+		next
 	end
 
 	# Check the WHOIS server responds
@@ -51,24 +63,27 @@ File.readlines('cctld-list.txt', chomp: true).each do |cctld|
 	if status.success? && !stdout.empty?
 		# Ensure the target is in the response
 		if stdout.scrub(".") =~ /#{cctld}/i
-			print "Y\n"
+			puts "Y"
+			checked_whois_servers[tld_whois_server] = "Y"
 		else
 
 			if stdout =~ /This TLD has no whois server/i
-				print "N - Response states no whois server\n"
+				puts "N - Response states no whois server"
+				checked_whois_servers[tld_whois_server] = "N"
 			else
 				# Handle exceptions - known servers which handle nic.tld unusually
 				if KNOWN_EXCEPTIONS.has_key?(cctld) && stdout =~ /#{KNOWN_EXCEPTIONS[cctld][0]}/
-					print "#{KNOWN_EXCEPTIONS[cctld][1]}\n"
+					puts "#{KNOWN_EXCEPTIONS[cctld][1]}"
 				else
 					# Bail, unknown response
-					print "Unexpected output: "
-					print stdout
+					puts "Unexpected output: "
+					puts stdout
 				end
 			end
 		end
 	else
 		# Lookup failed, print error (or stdout if no error)
-		print "N - #{(stderr.empty? ? stdout : stderr).chomp}\n"
+		puts "N - #{(stderr.empty? ? stdout : stderr).chomp}"
+		checked_whois_servers[tld_whois_server] = "N"
 	end
 end
