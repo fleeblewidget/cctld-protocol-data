@@ -33,7 +33,6 @@ module IanaData
       'xn--wgbh1c' => 'Egypt',
       'xn--xkc2al3hye2a' => 'Sri Lanka',
       'xn--ygbi2ammx' => 'Palestine, State of'
-
     }.freeze
 
     # These codes are in the ccTLD list but not in use
@@ -66,7 +65,7 @@ module IanaData
         manager = tld_data[2].text.strip
         lc_manager = manager.downcase
 
-        country_name = resolve_country_name(display_label, lc_manager, manager_hash)
+        country_name = resolve_country_name(punycode_label, lc_manager, manager_hash)
         manager_hash[lc_manager] = country_name if country_name != 'NAME NOT FOUND'
 
         tlds[punycode_label] = {
@@ -80,11 +79,11 @@ module IanaData
       tlds
     end
 
-    def self.resolve_country_name(display_label, lc_manager, manager_hash)
-      if (country = ISO3166::Country.new(display_label))
+    def self.resolve_country_name(punycode_label, lc_manager, manager_hash)
+      if (country = ISO3166::Country.new(punycode_label))
         country.common_name
-      elsif OTHER_COUNTRY_NAMES.key?(display_label)
-        OTHER_COUNTRY_NAMES[display_label]
+      elsif OTHER_COUNTRY_NAMES.key?(punycode_label)
+        OTHER_COUNTRY_NAMES[punycode_label]
       elsif manager_hash.key?(lc_manager)
         manager_hash[lc_manager]
       else
