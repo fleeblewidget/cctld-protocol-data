@@ -20,7 +20,20 @@ module IanaData
       'ac' => 'Ascension Island',
       'eu' => 'European Union',
       'su' => 'Soviet Union / Russia',
-      'uk' => 'United Kingdom'
+      'uk' => 'United Kingdom',
+      # These ones are IDNs where the 'manager' name doesn't match the ascii label
+      'xn--3e0b707e' => 'South Korea',
+      'xn--90ae' => 'Bulgaria',
+      'xn--fzc2c9e2c' => 'Sri Lanka',
+      'xn--j1amh' => 'Ukraine',
+      'xn--l1acc' => 'Mongolia',
+      'xn--mgba3a4f16a' => 'Iran',
+      'xn--mgbai9azgqp6j' => 'Pakistan',
+      'xn--node' => 'Georgia',
+      'xn--wgbh1c' => 'Egypt',
+      'xn--xkc2al3hye2a' => 'Sri Lanka',
+      'xn--ygbi2ammx' => 'Palestine, State of'
+
     }.freeze
 
     # These codes are in the ccTLD list but not in use

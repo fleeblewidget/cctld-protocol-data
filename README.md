@@ -11,6 +11,8 @@
 - RDAP - checked against RDAP bootstrap file, from https://data.iana.org/rdap/dns.json, then lookups attempted against nic.tld, the RDAP servername if within the zone, or a known exception.
 - WHOIS - lookup using WHOIS for nic.[TLD] (which exists in most zones) against the whois server listed by IANA (whois.iana.org), with special-case coding for known exceptions (see WHOIS Notes). Some TLDs have been manually tested with other known domain names, particularly IDNs.
 
+**Note** This is an evolving dataset, to submit clarifications or exceptions please raise an issue.
+
 # Generating data
 
 The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA. The results are written to stdout, it is recommended to redirect output to a file e.g. `ruby generate_data.rb > maturity_data.csv`
