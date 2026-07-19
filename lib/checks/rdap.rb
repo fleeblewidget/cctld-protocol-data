@@ -15,7 +15,7 @@ module Checks
       load_bootstrap unless @rdap_servers
 
       unless @rdap_servers.key?(tld)
-        return { rdap: 'N', rdap_error_detail: 'not in IANA bootstrap list' }
+        return { rdap: 'N', rdap_error_detail: 'Not in IANA bootstrap list' }
       end
 
       result = nil
