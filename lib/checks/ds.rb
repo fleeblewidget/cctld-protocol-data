@@ -39,13 +39,10 @@ module Checks
       if missing.any?
         raise "IANA algorithm CSV is missing expected columns: #{missing.join(', ')}\n" \
           "Found columns: #{csv_data.headers.join(', ')}"
-      end      
+      end
 
       @algorithm_table = {}
-      CSV.parse(
-        URI.open('https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers-1.csv').read,
-        headers: true
-      ) do |row|
+      csv_data.each do |row|
         num = row['Number'].to_i
         @algorithm_table[num] = {
           mnemonic: row['Mnemonic'],
