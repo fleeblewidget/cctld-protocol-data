@@ -80,9 +80,12 @@ module Checks
 
       labels = server_host.split('.')
 
+      last_attempt = "nic.#{tld}"
+
       [labels.last(2), labels.last(3)].uniq.each do |label_set|
         domain = label_set.join('.')
-        $stderr.puts "404 on nic.#{tld} at #{base_url}, trying #{domain}"
+        $stderr.puts "404 on #{last_attempt} at #{base_url}, trying #{domain}"
+        last_attempt = domain
         candidate = query(base_url, domain)
         return candidate if candidate.code.to_i == 200
       end
