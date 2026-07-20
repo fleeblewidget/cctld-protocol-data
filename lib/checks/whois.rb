@@ -34,7 +34,7 @@ module Checks
       # IDN lookups are hard, because 'nic' needs translating into the appropriate language and the language isn't part
       # of the IANA dataset. As a shortcut, if the whois server we're looking up against has already been checked, use
       # that result and assume that IDN lookups also work. Note that this only works for TLDs earlier in the
-      # alphabet than xn-- (sorry again, Zambia)
+      # alphabet than xn--  (At present there are no IDNs for countries later in the list than xn)
       @checked_whois_servers ||= {}
 
     	# Check whether IANA lists a whois server

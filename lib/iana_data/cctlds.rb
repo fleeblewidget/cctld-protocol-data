@@ -43,7 +43,8 @@ module IanaData
 
       # Slightly hacky way to try and get country names for IDN variants - build list of managers and names as we
       # go through, check IDNs against it. Should work for any TLD where the variant and ascii labels are listed
-      # with exactly the same manager, so long as they appear earlier in the alphabet than xn-- (sorry, Zambia)
+      # with exactly the same manager, so long as they appear earlier in the alphabet than xn--
+      # (At present there are no IDNs for countries later in the list than xn)
       manager_hash = {}
       tlds = {}
 
