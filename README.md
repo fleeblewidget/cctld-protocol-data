@@ -15,11 +15,11 @@
 
 # Generating data
 
-The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA. The results are written to stdout, it is recommended to redirect output to a file e.g. `ruby generate_data.rb > maturity_data.csv`
+The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA. The results are written to stdout, it is recommended to redirect output to a file e.g. `ruby generate_data.rb > protocol_support_data.csv`
 
 # Visualisations
 
-Separate scripts for producing visualisations are available in https://github.com/fleeblewidget/cctld-maturity-visualisation.
+Separate scripts for producing visualisations are available in https://github.com/fleeblewidget/cctld-protocol-support-visualisation
 
 # WHOIS Notes
 
@@ -27,7 +27,7 @@ WHOIS responses are very varied, and in particular the chosen search string for 
 
 There is no timeout implemented, to allow for cases such as .do which takes approx. 15 minutes to respond (as measured from Vienna during the IETF 126 hackathon) but does eventually return a correct response.
 
-A final note on WHOIS: the protocol is being replaced with RDAP and some registries have deprecated or removed it entirely. Therefore, absence of WHOIS in registries which have RDAP should not be taken as a sign of an immature technology stack.
+A final note on WHOIS: the protocol is being replaced with RDAP and some registries have deprecated or removed it entirely. Therefore, WHOIS has not been included in groupings for registries which have RDAP.
 
 # EPP Notes - in progress
 
@@ -41,3 +41,7 @@ EPP doesn't have a standard discoverability mechanism, and EPP servers are not p
 6. Any cases where the nic.TLD domain has client or server statuses reported in the WHOIS (e.g. serverDeleteProhibited) are assumed to have EPP
 
 So far EPP is not represented in the dataset, it may be that gathering this data requires surveys or similar rather than a technical solution.
+
+# Acknowledgements
+
+Grateful thanks to Karl Dyson, Gordon Dick and Jim Galvin for feedback and guidance on early versions of this project.
