@@ -2,9 +2,10 @@ require 'csv'
 require_relative 'lib/checks/ds'
 require_relative 'lib/checks/rdap'
 require_relative 'lib/checks/whois'
+require_relative 'lib/checks/ipv6'
 require_relative 'lib/iana_data/cctlds'
 
-CHECKS = [Checks::DS, Checks::RDAP, Checks::WHOIS]
+CHECKS = [Checks::DS, Checks::RDAP, Checks::WHOIS, Checks::IPv6]
 
 # Get initial dataset from IANA
 tld_data = IanaData::Cctlds.fetch
