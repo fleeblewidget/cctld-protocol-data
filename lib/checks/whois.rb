@@ -17,7 +17,14 @@ module Checks
       "mm" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
       "qa" => ["The Domain Name is not Available", "Y"],
       "th" => ["No match found", "Y"],
-      "vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"]
+      "vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"]#,
+#      "xn--clchc0ea0b2g2a9gcd" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+#      "xn--yfro4i67o" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+#      "xn--fiqs8s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+#      "xn--fiqz9s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+#      "xn--j6w193g" => ["This domain is currently not available for registration. Please select other domain.","Y"],
+#      "xn--o3cw4h" => ["% No match found.","Y"],
+#      "xn--wgbl6a" => ["No Data Found","Y"]
     }.freeze
 
     def self.check(tld)
@@ -76,6 +83,7 @@ module Checks
     def self.try_whois_lookup(server,domain,tld)
       stdout, stderr, status = Open3.capture3("whois -h #{server} #{domain}")
 
+      whois_response = whois_response_detail = ""
       if status.success? && !stdout.empty?
         # Ensure the target is in the response
         if stdout.scrub(".") =~ /#{domain}/i
@@ -103,15 +111,16 @@ module Checks
         whois_response_detail = (stderr.empty? ? stdout : stderr).chomp
       end
 
-      return [whois_response, whois_response_detail]
+      return whois_response, whois_response_detail
     end
 
     def self.try_server_domain(server_host, tld)
-      return nil unless server_host.end_with?(".#{tld}")
+      return "?",nil unless server_host.end_with?(".#{tld}")
 
       labels = server_host.split('.')
 
-      response = detail = ""
+      response = "?"
+      detail = ""
       [labels.last(2), labels.last(3)].uniq.each do |label_set|
         domain = label_set.join('.')
         response, detail = try_whois_lookup(server_host, domain, tld)
