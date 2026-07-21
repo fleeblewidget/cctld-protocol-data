@@ -17,14 +17,24 @@ module Checks
       "mm" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
       "qa" => ["The Domain Name is not Available", "Y"],
       "th" => ["No match found", "Y"],
-      "vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"]#,
-#      "xn--clchc0ea0b2g2a9gcd" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
-#      "xn--yfro4i67o" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
-#      "xn--fiqs8s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
-#      "xn--fiqz9s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
-#      "xn--j6w193g" => ["This domain is currently not available for registration. Please select other domain.","Y"],
-#      "xn--o3cw4h" => ["% No match found.","Y"],
-#      "xn--wgbl6a" => ["No Data Found","Y"]
+      "vg" => ["The queried object does not exist: DOMAIN NOT FOUND", "Y"],
+      "xn--clchc0ea0b2g2a9gcd" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+      "xn--yfro4i67o" => ["The domain name requested has usage restrictions applied to it. Please see your Registrar for more details.", "Y"],
+      "xn--fiqs8s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+      "xn--fiqz9s" => ["the Domain Name you apply can not be registered online. Please consult your Domain Name registrar","Y"],
+      "xn--j6w193g" => ["This domain is currently not available for registration. Please select other domain.","Y"],
+      "xn--o3cw4h" => ["% No match found.","Y"],
+      "xn--wgbl6a" => ["No Data Found","Y"],
+      "xn--4dbrk0ce" => ["Registration for this domain name is not allowed","Y"],
+      "xn--80ao21a" => ["This server is maintained by KazNIC Organization, a ccTLD manager for Kazakhstan Republic.","Y"],
+      "xn--90a3ac" => ["срб.срб","Y"], # TODO - automated check for U-label in output
+      "xn--90ais" => ["бел.бел","Y"],
+      "xn--d1alf" => ["мкд.мкд","Y"],
+      "xn--kprw13d" => ["xn--kpry57d.xn--kpry57d","Y"],
+      "xn--mgb9awbf" => ["No Data Found","Y"],
+      "xn--mgbaam7a8h" => ["امارات.امارات has been reserved by aeDA Regulator","Y"],
+      "xn--pgbs0dh" => ["تونس.تونس","Y"],
+      "xn--y9a3aq" => ["Reserved name: Blocked governmental domain name","Y"]
     }.freeze
 
     def self.check(tld)
@@ -75,7 +85,10 @@ module Checks
 
       if whois_response == "N"
         @broken_whois_servers << "N"
-      end
+      elsif whois_response == "?"
+        $stderr.puts "Unexpected output for #{tld}: #{whois_response_detail}"
+        whois_response_detail = "Unhandled exception"
+      end        
 
       return { whois: whois_response, whois_detail: whois_response_detail }
     end
