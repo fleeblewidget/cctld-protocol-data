@@ -1,0 +1,66 @@
+name: Refresh ccTLD data and visualisations
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'  # 2am UTC Sunday
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  gather:
+    runs-on: ubuntu-latest
+    outputs:
+      csv_filename: ${{ steps.generate.outputs.csv_filename }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Generate data
+        id: generate
+        run: |
+          FILENAME="results/latest_protocol_data.csv"
+          echo "Generating $FILENAME"
+          # Note: this script can take a long time due to slow WHOIS servers
+          ruby generate_data.rb > $FILENAME
+          echo "csv_filename=$FILENAME" >> $GITHUB_OUTPUT
+
+      - name: Commit data file
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "Data refresh $(date +%Y-%m-%d)"
+          git push
+
+  visualise:
+    needs: gather
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # ensure we get the committed CSV from the gather job
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate visualisations
+        run: |
+          python maps.py ${{ needs.gather.outputs.csv_filename }}
+
+      - name: Commit visualisations
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          git diff --staged --quiet || git commit -m "Visualisations $(date +%Y-%m-%d)"
+          git push
