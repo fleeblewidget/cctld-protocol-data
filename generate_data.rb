@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'csv'
 require_relative 'lib/checks/ds'
 require_relative 'lib/checks/rdap'
