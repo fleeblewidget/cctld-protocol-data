@@ -14,4 +14,4 @@ RUN bundle install
 
 COPY . .
 
-CMD ["ruby", "generate_data.rb"]
+ENTRYPOINT ["ruby", "generate_data.rb"]
