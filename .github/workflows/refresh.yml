@@ -5,12 +5,17 @@ on:
     - cron: '0 2 * * 0'  # 2am UTC Sunday
   workflow_dispatch:       # allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   gather:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
         run: docker build -t cctld-protocol-data .
