@@ -4,6 +4,10 @@
 * Install bundler gem: `gem install bundler`
 * Install project gems: `bundle install`
 
+OR
+
+Build and run Dockerfile and skip all that.
+
 # Methodology
 
 - ccTLD list - from Iana (https://www.iana.org/domains/root/db) filtered to country-code entries, names from Countries gem
@@ -35,4 +39,4 @@ Automated provisioning is a very interesting element of registry stacks, however
 
 # Acknowledgements
 
-Grateful thanks to Karl Dyson, Gordon Dick and Jim Galvin for feedback and guidance on early versions of this project.
+Grateful thanks to Karl Dyson, Gordon Dick and Jim Galvin for feedback and guidance on early versions of this project. Thankyou to Dan Q for help with Ruby build shenanigans. Any errors are my own - please let me know if you spot anything that can be improved!
