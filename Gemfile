@@ -7,3 +7,4 @@ gem 'nokogiri'
 gem 'open-uri'
 gem 'open3'
 gem 'countries'
+gem "csv", "~> 3.3"

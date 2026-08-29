@@ -3,6 +3,7 @@ GEM
   specs:
     countries (8.1.0)
       unaccent (~> 0.3)
+    csv (3.3.6)
     date (3.5.1)
     json (2.20.0)
     nokogiri (1.19.4-aarch64-linux-gnu)
@@ -45,6 +46,7 @@ PLATFORMS
 
 DEPENDENCIES
   countries
+  csv (~> 3.3)
   json
   nokogiri
   open-uri
@@ -53,6 +55,7 @@ DEPENDENCIES
 CHECKSUMS
   bundler (4.0.15) sha256=a4ceb882fe94a0e0ac63cd0813932bbfd631a14e5ac0b7975189b19a4d28d9e7
   countries (8.1.0) sha256=4d6b318b8e906f1f769d5c021c13a418d33e917dc96ceb625a91d8e7ab2d192e
+  csv (3.3.6) sha256=aba61e7e507a66f03d45cb1f3c4b6359861c3504038b422962875dce099e4456
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
   json (2.20.0) sha256=9362bc6e55a952b056abf9167cf053358181c904cb70cd6eee0808ea830fc32b
   nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
