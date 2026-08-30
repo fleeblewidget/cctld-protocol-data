@@ -45,7 +45,7 @@ cg,cg,Interpoint Switzerland,Congo,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,
 ch,ch,SWITCH The Swiss Education & Research Network,Switzerland,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ci,ci,Autorité de Régulation des Télécommunications/TIC de Côte d’lvoire (ARTCI),Côte d'Ivoire,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ck,ck,Telecom Cook Islands Ltd.,Cook Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
-cl,cl,NIC Chile (University of Chile),Chile,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,connect: Connection refused,Y
+cl,cl,NIC Chile (University of Chile),Chile,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 cm,cm,Agence Nationale des Technologies de l'Information et de la Communication (ANTIC),Cameroon,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 cn,cn,China Internet Network Information Center (CNNIC),China,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 co,co,Ministry of Information and Communications Technologies (MinTIC),Colombia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -145,7 +145,7 @@ md,md,IP Serviciul Tehnologia Informatiei si Securitate Cibernetica,Moldova,Y,14
 me,me,Government of Montenegro,Montenegro,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 mf,mf,Not assigned,Saint Martin (French part),N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
 mg,mg,NIC-MG (Network Information Center Madagascar),Madagascar,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 301,Y,Server available and responsive,Y
-mh,mh,Office of the Cabinet,Marshall Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
+mh,mh,Office of the Cabinet,Marshall Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
 mk,mk,Macedonian Academic Research Network Skopje,North Macedonia,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ml,ml,Agence des Technologies de l’Information et de la Communication,Mali,Y,15,ED25519,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 mm,mm,Ministry of Transport and Communications,Myanmar,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,N
@@ -223,7 +223,7 @@ tc,tc,Melrex TC,Turks and Caicos Islands,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not 
 td,td,l'Agence de Développement des Technologies de l'Information et de la Communication (ADETIC),Chad,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 tf,tf,Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.),French Southern Territories,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 tg,tg,Autorité de Régulation des Communications Electroniques et des Postes (ARCEP),Togo,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-th,th,Thai Network Information Center Foundation,Thailand,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Manually tracked exception,Y
+th,th,Thai Network Information Center Foundation,Thailand,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.thains.co.th unreachable,Y,Manually tracked exception,Y
 tj,tj,Information Technology Center,Tajikistan,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 tk,tk,Telecommunication Tokelau Corporation (Teletok),Tokelau,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,Timeout.,Y
 tl,tl,Autoridade Nacional de Comunicações,Timor-Leste,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -296,7 +296,7 @@ ws,ws,Government of Samoa Ministry of Foreign Affairs & Trade,Samoa,Y,8,RSASHA25
 .مليسيا‎,xn--mgbx4cd0ab,MYNIC Berhad,Malaysia,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 澳門,xn--mix891f,Macao Post and Telecommunications Bureau (CTT),Macao,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 გე,xn--node,Information Technologies Development Center (ITDC),Georgia,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
-ไทย,xn--o3cw4h,Thai Network Information Center Foundation,Thailand,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 404,Y,Manually tracked exception,Y
+ไทย,xn--o3cw4h,Thai Network Information Center Foundation,Thailand,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.thains.co.th unreachable,Y,Manually tracked exception,Y
 .سورية‎,xn--ogbpf8fl,National Authority for Information Technology Services (NAITS),Syrian Arab Republic,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 рф,xn--p1ai,Coordination Center for TLD RU,Russian Federation,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 .تونس‎,xn--pgbs0dh,Agence Tunisienne d'Internet,Tunisia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
