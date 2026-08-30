@@ -35,3 +35,12 @@ jobs:
           git add results/
           git diff --staged --quiet || git commit -m "Data refresh $(date +%Y-%m-%d)"
           git push
+
+      - name: Trigger visualisation update
+        if: success()
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.VIZ_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/fleeblewidget/cctld-protocol-support-visualisation/dispatches \
+            -d '{"event_type": "data-refreshed"}'
