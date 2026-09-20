@@ -1,6 +1,6 @@
 label,punycode_label,manager,country,ds,ds_algorithm_number,ds_algorithm_name,ds_algorithm_status,rdap,rdap_error_detail,whois,whois_detail,ipv6
 ac,ac,Internet Computer Bureau Limited,Ascension Island,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-ad,ad,Andorra Telecom,Andorra,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
+ad,ad,Andorra Telecom,Andorra,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.ad unreachable,N,Timeout.,Y
 ae,ae,Telecommunications and Digital Government Regulatory Authority (TDRA),United Arab Emirates,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 af,af,Ministry of Communications and IT,Afghanistan,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ag,ag,UHSA School of Medicine,Antigua and Barbuda,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -10,7 +10,7 @@ am,am,"""Internet Society"" Non-governmental Organization",Armenia,Y,13,ECDSAP25
 ao,ao,Ministry of Telecommunications and Information Technologies (MTTI),Angola,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 aq,aq,Antarctica Network Information Centre Limited,Antarctica,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 ar,ar,"Presidencia de la Nación , Secretaría Legal y Técnica",Argentina,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
-as,as,AS Domain Registry,American Samoa,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 500,Y,Server available and responsive,Y
+as,as,AS Domain Registry,American Samoa,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 at,at,nic.at GmbH,Austria,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 au,au,.au Domain Administration (auDA),Australia,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 aw,aw,SETAR,Aruba,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -114,7 +114,7 @@ is,is,ISNIC - Internet á Íslandi hf.,Iceland,Y,13,ECDSAP256SHA256,RECOMMENDED,
 it,it,IIT - CNR,Italy,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 je,je,Island Networks (Jersey) Ltd.,Jersey,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 jm,jm,University of West Indies,Jamaica,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
-jo,jo,Ministry of Digital Economy and Entrepreneurship (MoDEE),Jordan,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,fgets: Connection reset by peer,Y
+jo,jo,Ministry of Digital Economy and Entrepreneurship (MoDEE),Jordan,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 jp,jp,"Japan Registry Services Co., Ltd.",Japan,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ke,ke,Kenya Network Information Center (KeNIC),Kenya,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 kg,kg,AsiaInfo Telecommunication Enterprise,Kyrgyzstan,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
@@ -123,7 +123,7 @@ ki,ki,"Ministry of Information, Communications and Transport (MICT)",Kiribati,Y,
 km,km,Comores Telecom,Comoros,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 kn,kn,"Ministry of Finance, Sustainable Development Information & Technology",Saint Kitts and Nevis,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 kp,kp,Star Joint Venture Company,North Korea,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
-kr,kr,Korea Internet & Security Agency (KISA),South Korea,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
+kr,kr,Korea Internet & Security Agency (KISA),South Korea,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 kw,kw,Communications and Information Technology Regulatory Authority,Kuwait,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
 ky,ky,Utility Regulation and Competition Office (OfReg),Cayman Islands,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 kz,kz,Association of IT Companies of Kazakhstan,Kazakhstan,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -163,11 +163,11 @@ mx,mx,"NIC-Mexico
 ITESM - Campus Monterrey",Mexico,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 my,my,MYNIC Berhad,Malaysia,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 mz,mz,Centro de Informatica de Universidade Eduardo Mondlane,Mozambique,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-na,na,Namibian Network Information Center,Namibia,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 404,N,No whois server found,Y
+na,na,Namibian Network Information Center,Namibia,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 403,N,No whois server found,Y
 nc,nc,Office des Postes et Telecommunications,New Caledonia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ne,ne,Niger Télécoms SA (NIGERTELECOMS),Niger,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 nf,nf,Norfolk Island Data Services,Norfolk Island,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
-ng,ng,Nigeria Internet Registration Association,Nigeria,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Bad status: 502,N,Timeout.,Y
+ng,ng,Nigeria Internet Registration Association,Nigeria,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,N,Timeout.,Y
 ni,ni,Universidad Nacional del Ingernieria. Division de Tecnologias de la Informacion.,Nicaragua,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 nl,nl,SIDN (Stichting Internet Domeinregistratie Nederland),Netherlands,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 no,no,Norid A/S,Norway,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
@@ -178,7 +178,7 @@ nz,nz,InternetNZ,New Zealand,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap l
 om,om,Telecommunications Regulatory Authority (TRA),Oman,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 pa,pa,Universidad Tecnologica de Panama,Panama,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 pe,pe,Red Cientifica Peruana,Peru,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-pf,pf,Gouvernement de la Polynésie française,French Polynesia,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
+pf,pf,Gouvernement de la Polynésie française,French Polynesia,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,Timeout.,Y
 pg,pg,"PNG DNS Administration, Vice Chancellors Office, The Papua New Guinea University of Technology",Papua New Guinea,Y,15,ED25519,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 ph,ph,PH Domain Foundation,Philippines,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
 pk,pk,PKNIC,Pakistan,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -197,7 +197,7 @@ rs,rs,Serbian National Internet Domain Registry (RNIDS),Serbia,Y,13,ECDSAP256SHA
 ru,ru,Coordination Center for TLD RU,Russian Federation,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 rw,rw,Rwanda Internet Community and Technology  Alliance (RICTA) Ltd,Rwanda,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 sa,sa,"Communications, Space and Technology Commission",Saudi Arabia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-sb,sb,Solomon Telekom Company Limited,Solomon Islands,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,Timeout.,Y
+sb,sb,Solomon Telekom Company Limited,Solomon Islands,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 sc,sc,VCS Pty Ltd,Seychelles,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 sd,sd,Sudan Internet Society,Sudan,N,n/a,n/a,n/a,Y,n/a,Y,Server available and responsive,Y
 se,se,The Internet Infrastructure Foundation,Sweden,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -246,19 +246,19 @@ va,va,Holy See - Vatican City State,Holy See (Vatican City State),N,n/a,n/a,n/a,
 vc,vc,"Ministry of Telecommunications, Science, Technology and Industry",Saint Vincent and the Grenadines,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ve,ve,Comisión Nacional de Telecomunicaciones (CONATEL),Venezuela,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 vg,vg,Telecommunications Regulatory Commission of the Virgin Islands,"Virgin Islands, British",N,n/a,n/a,n/a,Y,n/a,Y,Manually tracked exception,Y
-vi,vi,"Virgin Islands Public Telecommunications System, Inc.","Virgin Islands, U.S.",N,n/a,n/a,n/a,N,SSL error: SSL_connect returned=1 errno=0 peeraddr=16.54.21.239:443 state=error: certificate verify failed (certificate has expired),N,connect: Connection refused,Y
+vi,vi,"Virgin Islands Public Telecommunications System, Inc.","Virgin Islands, U.S.",N,n/a,n/a,n/a,Y,n/a,N,connect: Connection refused,Y
 vn,vn,Viet Nam Internet Network Information Center (VNNIC),Vietnam,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
 vu,vu,Telecommunications Radiocommunications and Broadcasting Regulator (TRBR),Vanuatu,Y,10,RSASHA512,NOT RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 wf,wf,Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.),Wallis and Futuna,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
-ws,ws,Government of Samoa Ministry of Foreign Affairs & Trade,Samoa,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,Timeout.,Y
+ws,ws,Government of Samoa Ministry of Foreign Affairs & Trade,Samoa,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ಭಾರತ,xn--2scrj9c,National Internet eXchange of India,India,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-한국,xn--3e0b707e,KISA (Korea Internet & Security Agency),South Korea,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
+한국,xn--3e0b707e,KISA (Korea Internet & Security Agency),South Korea,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Bad status: 404,Y,Server available and responsive,Y
 ଭାରତ,xn--3hcrj9c,National Internet eXchange of India,India,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ভাৰত,xn--45br5cyl,National Internet eXchange of India,India,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ভারত,xn--45brj9c,National Internet Exchange of India,India,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 .ישראל‎,xn--4dbrk0ce,The Israel Internet Association (RA),Israel,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
 বাংলা,xn--54b7fta0cc,Posts and Telecommunications Division,Bangladesh,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
-қаз,xn--80ao21a,Association of IT Companies of Kazakhstan,Kazakhstan,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
+қаз,xn--80ao21a,Association of IT Companies of Kazakhstan,Kazakhstan,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,?,Unhandled exception,Y
 срб,xn--90a3ac,Serbian National Internet Domain Registry (RNIDS),Serbia,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
 бг,xn--90ae,Imena.BG AD,Bulgaria,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 бел,xn--90ais,Belarusian Cloud Technologies LLC,Belarus,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
