@@ -31,11 +31,12 @@ module Checks
       require 'csv'
       require 'open-uri'
 
-      expected_columns = ['Number', 'Mnemonic', 'Use for DNSSEC Signing']
+      expected_columns = ['Number', 'Mnemonic', "Use for DNSSEC Signing"]
   
       csv_data = CSV.parse(
-        URI.open('https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers-1.csv').read.gsub(/\R+/, ' '),
+        URI.open('https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers-1.csv').read,
         headers: true,
+        header_converters: lambda { |h| h.gsub(/\R+/, ' ') }, # Turn line-breaks in headers into space
         liberal_parsing: true # Handle weird whitespace etc
       )
 
@@ -50,7 +51,7 @@ module Checks
         num = row['Number'].to_i
         @algorithm_table[num] = {
           mnemonic: row['Mnemonic'],
-          signing_use: row['Use for DNSSEC Signing']
+          signing_use: row["Use for DNSSEC Signing"]
         }
       end
     end
