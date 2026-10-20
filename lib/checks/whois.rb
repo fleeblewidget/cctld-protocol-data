@@ -38,6 +38,8 @@ module Checks
     }.freeze
 
     def self.check(tld)
+      STDERR.print "-> WHOIS..."
+
       # Try IANA first, but fall back on list from https://whoislist.org/whois_servers.json for TLDs not in the list
       @whoislist_servers ||= JSON.parse(URI.open('https://whoislist.org/whois_servers.json').read)
 
@@ -88,7 +90,9 @@ module Checks
       elsif whois_response == "?"
         $stderr.puts "Unexpected output for #{tld}: #{whois_response_detail}"
         whois_response_detail = "Unhandled exception"
-      end        
+      end
+
+      STDERR.puts "Done"
 
       return { whois: whois_response, whois_detail: whois_response_detail }
     end

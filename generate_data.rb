@@ -16,6 +16,7 @@ first_row = true
 
 CSV($stdout) do |csv|
   tld_data.each_key do |cctld|
+    STDERR.puts "Running checks on #{cctld}..."
     CHECKS.each { |c| tld_data[cctld].merge!(c.check(cctld)) }
 
     if first_row

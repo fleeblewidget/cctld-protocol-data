@@ -1,6 +1,7 @@
 module Checks
   module DS
     def self.check(tld)
+      STDERR.print "-> DS lookup...."
       load_algorithm_table unless @algorithm_table
 
       result = `dig +time=5 +tries=2 +short DS #{tld}. @a.root-servers.net`
@@ -16,6 +17,8 @@ module Checks
       algorithm_info = @algorithm_table[algorithm_number] || 
                        { mnemonic: 'UNKNOWN', signing_use: 'UNKNOWN' }
 
+      STDERR.puts "Done"
+
       {
         ds: 'Y',
         ds_algorithm_number: algorithm_number,
@@ -28,11 +31,12 @@ module Checks
       require 'csv'
       require 'open-uri'
 
-      expected_columns = ['Number', 'Mnemonic', 'Use forDNSSEC Signing']
+      expected_columns = ['Number', 'Mnemonic', 'Use for DNSSEC Signing']
   
       csv_data = CSV.parse(
-        URI.open('https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers-1.csv').read,
-        headers: true
+        URI.open('https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers-1.csv').read.gsub(/\R+/, ' '),
+        headers: true,
+        liberal_parsing: true # Handle weird whitespace etc
       )
 
       missing = expected_columns - csv_data.headers
@@ -46,7 +50,7 @@ module Checks
         num = row['Number'].to_i
         @algorithm_table[num] = {
           mnemonic: row['Mnemonic'],
-          signing_use: row['Use forDNSSEC Signing']
+          signing_use: row['Use for DNSSEC Signing']
         }
       end
     end

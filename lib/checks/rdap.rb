@@ -12,6 +12,7 @@ module Checks
     }.freeze
 
     def self.check(tld)
+      STDERR.print "-> RDAP..."
       load_bootstrap unless @rdap_servers
 
       unless @rdap_servers.key?(tld)
@@ -23,6 +24,8 @@ module Checks
         result = probe(url.chomp('/'), tld)
         break if result == :ok
       end
+
+      STDERR.puts "Done"
 
       result == :ok \
         ? { rdap: 'Y', rdap_error_detail: 'n/a' }

@@ -5,12 +5,11 @@ require 'countries'
 # This script expects a TLD row in the IANA output that looks roughly like this:
 #<tr>
 #  <td>
-#    <span>
-#      <a href="/domains/root/db/PUNYCODE_TLD.html">.DISPLAY_TLD</a>
-#    </span>
+#    <a href="/domains/root/db/PUNYCODE_TLD">.DISPLAY_TLD</a>
 #  </td>
-#  <td data-label="Type">country-code</td>
-#  <td data-label="Manager">REGISTRY MANAGER ORG</td>
+#  <td>STATUS</td>
+#  <td>TYPE</td>
+#  <td>REGISTRY MANAGER ORG</td>
 #</tr>
 
 module IanaData
@@ -35,11 +34,10 @@ module IanaData
       'xn--ygbi2ammx' => 'Palestine, State of'
     }.freeze
 
-    # These codes are in the ccTLD list but not in use
-    DEFUNCT_CODES = %w[an tp].freeze
+    IANA_ROOT_LIST = 'https://www.iana.org/domains/root/db'
 
     def self.fetch
-      iana_list = Nokogiri::HTML(URI.open('https://www.iana.org/domains/root/db'))
+      iana_list = Nokogiri::HTML(URI.open(IANA_ROOT_LIST))
 
       # Slightly hacky way to try and get country names for IDN variants - build list of managers and names as we
       # go through, check IDNs against it. Should work for any TLD where the variant and ascii labels are listed
@@ -48,22 +46,23 @@ module IanaData
       manager_hash = {}
       tlds = {}
 
-      iana_list.css('table#tld-table tbody tr').each do |row|
+      data_rows = iana_list.css('table tbody tr')
+      raise "No TLD data found at #{IANA_ROOT_LIST}" if data_rows.empty?
+
+      data_rows.each do |row|
         tld_data = row.css('td')
         next if tld_data.empty?
 
-        type = tld_data[1].text.strip
-        next unless type == 'country-code'
+        status = tld_data[1].text.strip
+        type = tld_data[2].text.strip
+        next unless (type == 'Country Code' && status == 'Active')
 
         punycode_label = tld_data[0].css('a').attr('href').text
                                     .gsub('/domains/root/db/', '')
-                                    .gsub('.html', '')
                                     .strip
         display_label = tld_data[0].css('a').children.first.text.strip[1..-1]
 
-        next if DEFUNCT_CODES.include?(display_label)
-
-        manager = tld_data[2].text.strip
+        manager = tld_data[3].text.strip
         lc_manager = manager.downcase
 
         country_name = resolve_country_name(punycode_label, lc_manager, manager_hash)
@@ -76,6 +75,8 @@ module IanaData
           country: country_name
         }
       end
+
+      raise "No data returned from parsing #{IANA_ROOT_LIST}" if tlds.empty?
 
       tlds
     end
