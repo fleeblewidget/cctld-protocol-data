@@ -19,7 +19,7 @@ Build and run Dockerfile and skip all that.
 
 # Generating data
 
-The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA. The results are written to stdout, it is recommended to redirect output to a file e.g. `ruby generate_data.rb > protocol_support_data.csv`
+The script generate_data.rb produces a CSV based on a fresh scrape of the TLD list from IANA. The results are written to STDOUT, it is recommended to redirect output to a file e.g. `ruby generate_data.rb > protocol_support_data.csv`. Progress updates are output to STDERR.
 
 # Visualisations
 
