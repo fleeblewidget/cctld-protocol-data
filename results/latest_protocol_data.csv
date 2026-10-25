@@ -9,7 +9,7 @@ al,al,Electronic and Postal Communications Authority - AKEP,Albania,Y,13,ECDSAP2
 am,am,"""Internet Society"" Non-governmental Organization",Armenia,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ao,ao,Ministry of Telecommunications and Information Technologies (MTTI),Angola,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 aq,aq,Antarctica Network Information Centre Limited,Antarctica,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
-ar,ar,"Presidencia de la Nación , Secretaría Legal y Técnica",Argentina,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 500,Y,Server available and responsive,Y
+ar,ar,"Presidencia de la Nación , Secretaría Legal y Técnica",Argentina,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.ar unreachable,Y,Server available and responsive,Y
 as,as,AS Domain Registry,American Samoa,Y,8,RSASHA256,RECOMMENDED,Y,n/a,N,getaddrinfo(whois.nic.as): No address associated with hostname,Y
 at,at,nic.at GmbH,Austria,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 au,au,.au Domain Administration (auDA),Australia,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
@@ -43,7 +43,7 @@ cg,cg,Interpoint Switzerland,Congo,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,
 ch,ch,SWITCH The Swiss Education & Research Network,Switzerland,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ci,ci,Autorité de Régulation des Télécommunications/TIC de Côte d’lvoire (ARTCI),Côte d'Ivoire,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ck,ck,Telecom Cook Islands Ltd.,Cook Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
-cl,cl,NIC Chile (University of Chile),Chile,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,connect: Connection refused,Y
+cl,cl,NIC Chile (University of Chile),Chile,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 cm,cm,Agence Nationale des Technologies de l'Information et de la Communication (ANTIC),Cameroon,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 cn,cn,China Internet Network Information Center (CNNIC),China,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 co,co,Ministry of Information and Communications Technologies (MinTIC),Colombia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -51,7 +51,7 @@ cr,cr,National Academy of Sciences (Academia Nacional de Ciencias),Costa Rica,Y,
 cu,cu,CENIAInternet,Cuba,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 cv,cv,Agência Reguladora Multissectorial da Economia (ARME),Cabo Verde,N,n/a,n/a,n/a,Y,n/a,N,Timeout.,Y
 cw,cw,University of Curacao,Curaçao,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
-cx,cx,Christmas Island Domain Administration Limited,Christmas Island,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
+cx,cx,Christmas Island Domain Administration Limited,Christmas Island,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.cx unreachable,Y,Server available and responsive,Y
 cy,cy,University of Cyprus,Cyprus,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
 cz,cz,"CZ.NIC, z.s.p.o",Czechia,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 de,de,DENIC eG,Germany,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -87,16 +87,16 @@ gn,gn,Centre National des Sciences Halieutiques de Boussoura,Guinea,Y,8,RSASHA25
 gp,gp,Networking Technologies Group,Guadeloupe,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,Timeout.,Y
 gq,gq,GETESA,Equatorial Guinea,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,Response states no whois server,Y
 gr,gr,ICS-FORTH GR,Greece,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
-gs,gs,Government of South Georgia and South Sandwich Islands (GSGSSI),South Georgia and the South Sandwich Islands,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
+gs,gs,Government of South Georgia and South Sandwich Islands (GSGSSI),South Georgia and the South Sandwich Islands,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.gs unreachable,Y,Server available and responsive,Y
 gt,gt,Universidad del Valle de Guatemala,Guatemala,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 gu,gu,University of Guam,Guam,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 gw,gw,Autoridade Reguladora Nacional - Tecnologias de Informação e Comunicação da Guiné-Bissau,Guinea-Bissau,Y,10,RSASHA512,NOT RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
-gy,gy,University of Guyana,Guyana,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
+gy,gy,University of Guyana,Guyana,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.registry.gy unreachable,Y,Server available and responsive,Y
 hk,hk,Hong Kong Internet Registration Corporation Ltd.,Hong Kong,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 hm,hm,HM Domain Registry,Heard Island and McDonald Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,Timeout.,N
 hn,hn,Red de Desarrollo Sostenible Honduras,Honduras,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 hr,hr,CARNet - Croatian Academic and Research Network,Croatia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-ht,ht,Consortium FDS/RDDH,Haiti,Y,8,RSASHA256,RECOMMENDED,Y,n/a,N,getaddrinfo(whois.nic.ht): No address associated with hostname,Y
+ht,ht,Consortium FDS/RDDH,Haiti,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.ht unreachable,N,getaddrinfo(whois.nic.ht): No address associated with hostname,Y
 hu,hu,Council of Hungarian Internet Providers (CHIP),Hungary,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,fgets: Connection reset by peer,Y
 id,id,Perkumpulan Pengelola Nama Domain Internet Indonesia (PANDI),Indonesia,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 ie,ie,IE Domain Registry CLG,Ireland,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
@@ -148,7 +148,7 @@ mo,mo,Macao Post and Telecommunications Bureau (CTT),Macao,N,n/a,n/a,n/a,N,Not i
 mp,mp,"Saipan Datacom, Inc.",Northern Mariana Islands,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,N
 mq,mq,CANAL+ TELECOM,Martinique,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,Y,Server available and responsive,N
 mr,mr,Université de Nouakchott Al Aasriya,Mauritania,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-ms,ms,MNI Networks Ltd.,Montserrat,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 404,N,connect: Connection refused,Y
+ms,ms,MNI Networks Ltd.,Montserrat,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 mt,mt,NIC (Malta),Malta,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 mu,mu,Internet Direct Ltd,Mauritius,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 mv,mv,Dhivehi Raajjeyge Gulhun PLC,Maldives,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
@@ -159,8 +159,8 @@ mz,mz,Centro de Informatica de Universidade Eduardo Mondlane,Mozambique,N,n/a,n/
 na,na,Namibian Network Information Center,Namibia,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 403,N,No whois server found,Y
 nc,nc,Office des Postes et Telecommunications,New Caledonia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 ne,ne,Niger Télécoms SA (NIGERTELECOMS),Niger,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
-nf,nf,Norfolk Island Data Services,Norfolk Island,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
-ng,ng,Nigeria Internet Registration Association,Nigeria,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,N,Timeout.,Y
+nf,nf,Norfolk Island Data Services,Norfolk Island,Y,8,RSASHA256,RECOMMENDED,N,Server https://rdap.nic.nf unreachable,Y,Server available and responsive,Y
+ng,ng,Nigeria Internet Registration Association,Nigeria,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Server https://rdap.nic.net.ng unreachable,N,Timeout.,Y
 ni,ni,Universidad Nacional del Ingernieria. Division de Tecnologias de la Informacion.,Nicaragua,N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,No whois server found,Y
 nl,nl,SIDN (Stichting Internet Domeinregistratie Nederland),Netherlands,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 no,no,Norid A/S,Norway,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
@@ -191,7 +191,7 @@ ru,ru,Coordination Center for TLD RU,Russian Federation,Y,8,RSASHA256,RECOMMENDE
 rw,rw,Rwanda Internet Community and Technology  Alliance (RICTA) Ltd,Rwanda,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 sa,sa,"Communications, Space and Technology Commission",Saudi Arabia,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 sb,sb,Solomon Telekom Company Limited,Solomon Islands,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
-sc,sc,VCS Pty Ltd,Seychelles,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
+sc,sc,VCS Pty Ltd,Seychelles,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 sd,sd,Sudan Internet Society,Sudan,N,n/a,n/a,n/a,N,Bad status: 404,N,connect: Connection refused,Y
 se,se,The Internet Infrastructure Foundation,Sweden,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Server available and responsive,Y
 sg,sg,Singapore Network Information Centre (SGNIC) Pte Ltd,Singapore,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
@@ -303,7 +303,7 @@ ws,ws,Government of Samoa Ministry of Foreign Affairs & Trade,Samoa,Y,8,RSASHA25
 հայ,xn--y9a3aq,"""Internet Society"" Non-governmental Organization",Armenia,Y,13,ECDSAP256SHA256,RECOMMENDED,N,Not in IANA bootstrap list,Y,Manually tracked exception,Y
 新加坡,xn--yfro4i67o,Singapore Network Information Centre (SGNIC) Pte Ltd,Singapore,Y,8,RSASHA256,RECOMMENDED,N,Bad status: 404,Y,Manually tracked exception,Y
 فلسطين.‎,xn--ygbi2ammx,Ministry of Telecom & Information Technology (MTIT),"Palestine, State of",N,n/a,n/a,n/a,N,Not in IANA bootstrap list,N,connect: Connection refused,Y
-ye,ye,TeleYemen,Yemen,N,n/a,n/a,n/a,Y,n/a,Y,Server available and responsive,Y
+ye,ye,TeleYemen,Yemen,N,n/a,n/a,n/a,N,Server https://rdap.y.net.ye unreachable,Y,Server available and responsive,Y
 yt,yt,Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.),Mayotte,Y,13,ECDSAP256SHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
 za,za,ZA Domain Name Authority,South Africa,Y,8,RSASHA256,RECOMMENDED,N,Not in IANA bootstrap list,N,No whois server found,Y
 zm,zm,Zambia Information and Communications Technology Authority (ZICTA),Zambia,Y,8,RSASHA256,RECOMMENDED,Y,n/a,Y,Server available and responsive,Y
